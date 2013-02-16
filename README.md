@@ -2,11 +2,11 @@
 
 A scraper for The Pirate Bay based on Symfony components.
 
-DISCLAIMER: This project is not endorsed by, affiliated with, or intended to infringe upon The Pirate Bay and is meant for non-commercial purposes only.
+DISCLAIMER: This project is not endorsed by, affiliated with, or intended to infringe upon The Pirate Bay and is meant for non-commercial purposes (i.e. personal use) only.
 
 # Install
 
-The recommended method of installation is (through composer)[http://getcomposer.org/].
+The recommended method of installation is [through composer](http://getcomposer.org/).
 
 ```JSON
 {
