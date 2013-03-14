@@ -1,10 +1,21 @@
 {
+    "name": "bluelyte/tpb-client",
+    "description": "A scraper for The Pirate Bay based on Symfony components.",
+    "keywords": [ "tpb", "pirate bay", "torrent", "torrents" ],
+    "license": "BSD-2-Clause",
     "require": {
+        "php": ">=5.3.3",
         "fabpot/goutte": "1.0.*@dev"
     },
     "autoload": {
         "classmap": [
             "src/Client.php"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bluelyte/tpb-client"
+        }
+    ]
 }
