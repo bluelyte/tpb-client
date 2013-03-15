@@ -58,8 +58,17 @@ class Client extends \Goutte\Client
 
         // Sort the search results to get the one with the most seeders
         if ($sort) {
-            $link = $crawler->filterXPath('//table[@id="searchResult"]//a[text()="SE"]')->link();
-            $crawler = $this->click($link);
+            $link = $crawler->filterXPath('//table[@id="searchResult"]//a[text()="SE"]');
+            if (count($link)) {
+                $crawler = $this->link()->click($link);
+            } else {
+                return array(
+                    'start' => 0,
+                    'end' => 0,
+                    'total' => 0,
+                    'results' => array(),
+                );
+            }
         }
 
         // Get position within the entire result set
