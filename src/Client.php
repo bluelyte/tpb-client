@@ -33,7 +33,7 @@ class Client extends \Goutte\Client
         return $request;
     }
 
-    protected function filterResponse(Response $response)
+    protected function filterResponse($response)
     {
         //var_dump($response);
         return $response;
