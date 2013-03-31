@@ -60,7 +60,7 @@ class Client extends \Goutte\Client
         if ($sort) {
             $link = $crawler->filterXPath('//table[@id="searchResult"]//a[text()="SE"]');
             if (count($link)) {
-                $crawler = $this->link()->click($link);
+                $crawler = $this->click($link);
             } else {
                 return array(
                     'start' => 0,
