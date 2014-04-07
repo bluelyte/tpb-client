@@ -136,6 +136,25 @@ class Client extends \Goutte\Client
         return $return;
     }
 
+    public function getComments($detailsLink)
+    {
+        $crawler = $this->request('GET', $detailsLink);
+
+        $comments = $crawler->filterXPath('//div[@id="comments"]/div');
+        $return = array();
+        foreach ($comments as $comment) {
+            $commentData = array();
+            $comment = new Crawler($comment);
+            $commentData['user'] = $comment->filterXPath('//p[@class="byline"]/a')->text();
+            $commentData['userLink'] = $this->baseUrl . $comment->filterXPath('//p[@class="byline"]/a')->attr('href');
+            $commentData['time'] = preg_replace('/.* at ([^:]+):.*$/ms', '$1', $comment->filterXPath('//p[@class="byline"]')->text());
+            $commentData['comment'] = trim($comment->filterXPath('//div[@class="comment"]')->text());
+            $return[] = $commentData;
+        }
+
+        return $return;
+    }
+
     protected function getCategoryLink(Crawler $crawler)
     {
         return array(
