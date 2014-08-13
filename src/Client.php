@@ -49,7 +49,7 @@ class Client extends \Goutte\Client
         });
         $params = array('q' => $term, 'page' => $page - 1);
         foreach ($categories as $param) {
-            $params[$param] = 1;
+            $params[$param] = 'on';
         }
 
         // Get the search form
